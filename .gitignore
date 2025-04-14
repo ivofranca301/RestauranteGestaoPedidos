@@ -1,0 +1,17 @@
+﻿# Visual Studio temporary files
+.vs/
+bin/
+obj/
+
+# NuGet Packages
+packages/
+*.nupkg
+
+# Visual Studio user-specific files
+*.suo
+*.user
+
+# Compiled output
+*.dll
+*.exe
+*.pdb
