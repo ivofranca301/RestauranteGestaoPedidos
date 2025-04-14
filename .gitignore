@@ -1,17 +1,16 @@
-﻿# Visual Studio temporary files
+# Visual Studio temporary files
 .vs/
 bin/
 obj/
 
-# NuGet Packages
-packages/
-*.nupkg
+# Meus comentários locais
+*.log
 
-# Visual Studio user-specific files
+# .NET template from GitHub
+*.nupkg
+packages/
 *.suo
 *.user
-
-# Compiled output
 *.dll
 *.exe
 *.pdb
