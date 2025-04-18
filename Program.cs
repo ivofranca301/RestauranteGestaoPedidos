@@ -1,22 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using RestauranteGestaoPedidos.Controllers;
+using RestauranteGestaoPedidos.Views;
+using System;
 using System.Windows.Forms;
 
 namespace RestauranteGestaoPedidos
 {
-    internal static class Program
+    static class Program
     {
-        /// <summary>
-        /// Ponto de entrada principal para o aplicativo.
-        /// </summary>
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            var clienteController = new ClienteController();
+            var formLogin = new FormLogin(clienteController);
+            if (formLogin.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("Login bem-sucedido! A funcionalidade será implementada nas próximas fases.", "Sucesso");
+            }
         }
     }
 }
