@@ -174,3 +174,4 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnCancelar;
     }
+}
