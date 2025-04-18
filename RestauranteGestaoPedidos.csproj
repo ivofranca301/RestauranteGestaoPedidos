@@ -115,7 +115,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Data\CardapioRepository.cs" />
+    <Compile Include="Data\PedidosRepository.cs" />
     <Compile Include="Data\UtilizadorRepository.cs" />
+    <Compile Include="Models\ItemCardapio.cs" />
     <Compile Include="Models\ItemPedido.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\StatusPedido.cs" />
