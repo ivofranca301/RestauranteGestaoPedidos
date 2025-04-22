@@ -115,12 +115,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ClienteController.cs" />
-    <Compile Include="Data\PedidoRepository.cs" />
-    <Compile Include="Data\ProdutoRepository.cs" />
-    <Compile Include="Data\UtilizadorRepository.cs" />
+    <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\ItemPedido.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\Repositorios\ClientesRepository.cs" />
+    <Compile Include="Models\Repositorios\PedidoRepository.cs" />
+    <Compile Include="Models\Repositorios\ProdutoRepository.cs" />
+    <Compile Include="Models\Repositorios\UtilizadorRepository.cs" />
     <Compile Include="Models\StatusPedido.cs" />
     <Compile Include="Models\Utilizador.cs" />
     <Compile Include="Program.cs" />
