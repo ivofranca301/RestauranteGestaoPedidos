@@ -1,5 +1,4 @@
-﻿using RestauranteGestaoPedidos.Data;
-using RestauranteGestaoPedidos.Models;
+﻿using RestauranteGestaoPedidos.Models;
 using RestauranteGestaoPedidos.Models.Repositorios;
 using System;
 using System.Collections.Generic;
