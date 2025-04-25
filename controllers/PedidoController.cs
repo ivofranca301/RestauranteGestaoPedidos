@@ -1,6 +1,10 @@
 ﻿using RestauranteGestaoPedidos.Models;
 using System.Collections.Generic;
 using System;
+using RestauranteGestaoPedidos.Models.Repositorios;
+using RestauranteGestaoPedidos.Controllers;
+using RestauranteGestaoPedidos.Data;
+using System.Linq;
 
 public class PedidoController
 {
@@ -50,5 +54,4 @@ public class PedidoController
             Notificar?.Invoke(this, "Pedido removido");
         }
     }
-}
 }
