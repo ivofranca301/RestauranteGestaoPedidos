@@ -15,5 +15,8 @@ namespace RestauranteGestaoPedidos.Models
 
         [JsonProperty("preco")]
         public decimal Preco { get; set; }
+
+        [JsonProperty("notas")]
+        public string Notas { get; set; } // Novo campo para observações por exemplo "sem cebola"
     }
 }
