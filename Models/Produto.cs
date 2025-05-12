@@ -10,10 +10,10 @@ namespace RestauranteGestaoPedidos.Models
         [JsonProperty("nome")]
         public string Nome { get; set; }
 
-        [JsonProperty("preço")]
+        [JsonProperty("preco")]
         public decimal Preco { get; set; }
 
-        [JsonProperty("disponível")]
-        public bool Disponivel { get; set; }
+        [JsonIgnore]
+        public string PrecoFormatado => $"€{Preco:F2}";
     }
 }
