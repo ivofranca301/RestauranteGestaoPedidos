@@ -14,7 +14,7 @@ namespace RestauranteGestaoPedidos.Models
         public string Email { get; set; }
 
         [JsonProperty("papel")]
-        public string Papel { get; set; }
+        public string Papel { get; set; } // "Admin" ou "Utilizador"
 
         [JsonProperty("senha")]
         public string Senha { get; set; }
