@@ -3,7 +3,6 @@ using RestauranteGestaoPedidos.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace RestauranteGestaoPedidos.Data
@@ -24,9 +23,8 @@ namespace RestauranteGestaoPedidos.Data
                 Directory.CreateDirectory(Path.GetDirectoryName(_filePath));
                 var produtosIniciais = new List<Produto>
                 {
-                    new Produto { Id = 1, Nome = "Hambúrguer", Preco = 10.00m, Disponivel = true },
-                    new Produto { Id = 2, Nome = "Pizza", Preco = 15.00m, Disponivel = true },
-                    new Produto { Id = 3, Nome = "Salada", Preco = 8.00m, Disponivel = true }
+                    new Produto { Id = 1, Nome = "Pizza Margherita", Preco = 30.00m },
+                    new Produto { Id = 2, Nome = "Refrigerante", Preco = 5.00m }
                 };
                 SaveProdutos(produtosIniciais);
                 return produtosIniciais;
@@ -56,11 +54,6 @@ namespace RestauranteGestaoPedidos.Data
             {
                 MessageBox.Show($"Erro ao salvar produtos: {ex.Message}", "Erro");
             }
-        }
-
-        public Produto GetProdutoPorId(int id)
-        {
-            return GetProdutos().FirstOrDefault(p => p.Id == id);
         }
     }
 }

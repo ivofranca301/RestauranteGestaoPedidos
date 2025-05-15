@@ -1,10 +1,9 @@
 ﻿using Newtonsoft.Json;
+using RestauranteGestaoPedidos.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using RestauranteGestaoPedidos.Models;
-
 
 namespace RestauranteGestaoPedidos.Data
 {
@@ -16,6 +15,7 @@ namespace RestauranteGestaoPedidos.Data
         {
             _filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "utilizadores.json");
         }
+
         public List<Utilizador> GetUtilizadores()
         {
             if (!File.Exists(_filePath))
