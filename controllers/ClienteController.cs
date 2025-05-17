@@ -1,55 +1,66 @@
-﻿using RestauranteGestaoPedidos.Models;
-using RestauranteGestaoPedidos.Models.Repositorios;
+﻿using RestauranteGestaoPedidos.Models.repositorios;
+using RestauranteGestaoPedidos.Models;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+
 
 namespace RestauranteGestaoPedidos.Controllers
 {
     public class ClienteController
     {
-        private readonly ClientesRepository _ClientesRepository;
+        private readonly UtilizadorRepository _utilizadorRepository;
 
         public event EventHandler<(bool Sucesso, string Mensagem, string Papel)> ResponderLogin;
 
         public ClienteController()
         {
-            _ClientesRepository = new ClientesRepository();
+            _utilizadorRepository = new UtilizadorRepository();
         }
 
         public void Login(string email, string senha)
         {
-            var cliente = _ClientesRepository.ObterPorEmail(email);
-            if (cliente == null)
+            var utilizadores = _utilizadorRepository.GetUtilizadores();
+            var utilizador = utilizadores.Find(u => u.Email.ToLower() == email.ToLower() && u.Senha == senha);
+            if (utilizador == null)
             {
-                ResponderLogin?.Invoke(this, (false, "Email não encontrado.", null));
-                return;
-            }
-            if (cliente.Senha != senha)
-            {
-                ResponderLogin?.Invoke(this, (false, "Senha incorreta.", null));
-                return;       
+                ResponderLogin?.Invoke(this, (false, "Credenciais inválidas.", null));
             }
             else
             {
-                ResponderLogin?.Invoke(this, (true, "Login bem-sucedido.", cliente.Papel));
+                ResponderLogin?.Invoke(this, (true, "Login bem-sucedido.", utilizador.Papel));
             }
         }
 
-
-        public void CriarConta(string nome, string email, string senha, string papel)
+        public string GetPermissoes(string email)
         {
-            var cliente = new Cliente
+            var utilizadores = _utilizadorRepository.GetUtilizadores();
+            var utilizador = utilizadores.Find(u => u.Email.ToLower() == email.ToLower());
+            return utilizador?.Papel ?? "Utilizador";
+        }
+
+        public List<Utilizador> GetUtilizadores()
+        {
+            return _utilizadorRepository.GetUtilizadores();
+        }
+
+        public void CriarConta(Utilizador novoUtilizador)
+        {
+            var utilizadores = _utilizadorRepository.GetUtilizadores();
+            novoUtilizador.Id = utilizadores.Any() ? utilizadores.Max(u => u.Id) + 1 : 1;
+            utilizadores.Add(novoUtilizador);
+            _utilizadorRepository.SaveUtilizadores(utilizadores);
+        }
+
+        public void AtualizarUtilizador(Utilizador usuario)
+        {
+            var utilizadores = _utilizadorRepository.GetUtilizadores();
+            var index = utilizadores.FindIndex(u => u.Id == usuario.Id);
+            if (index >= 0)
             {
-                Nome = nome,
-                Email = email,
-                Senha = senha,
-                Papel = papel
-            };
-            _ClientesRepository.Adicionar(cliente);
+                utilizadores[index] = usuario;
+                _utilizadorRepository.SaveUtilizadores(utilizadores);
+            }
         }
     }
 }
-
-

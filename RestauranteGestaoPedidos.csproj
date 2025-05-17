@@ -117,11 +117,9 @@
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
-    <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\ItemPedido.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\Produto.cs" />
-    <Compile Include="Models\Repositorios\ClientesRepository.cs" />
     <Compile Include="Models\Repositorios\PedidoRepository.cs" />
     <Compile Include="Models\Repositorios\ProdutoRepository.cs" />
     <Compile Include="Models\Repositorios\UtilizadorRepository.cs" />
@@ -135,11 +133,23 @@
     <Compile Include="Views\FormAdicionarProduto.Designer.cs">
       <DependentUpon>FormAdicionarProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FormGerirPermissoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormGerirPermissoes.Designer.cs">
+      <DependentUpon>FormGerirPermissoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FormGerirProduto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\FormGerirProduto.Designer.cs">
       <DependentUpon>FormGerirProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormHistorico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormHistorico.Designer.cs">
+      <DependentUpon>FormHistorico.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FormLogin.cs">
       <SubType>Form</SubType>
@@ -153,11 +163,23 @@
     <Compile Include="Views\FormNovaConta.Designer.cs">
       <DependentUpon>FormNovaConta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FormNovoPedido.cs">
+    <Compile Include="Views\NovoPedidoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FormNovoPedido.Designer.cs">
-      <DependentUpon>FormNovoPedido.cs</DependentUpon>
+    <Compile Include="Views\NovoPedidoForm.Designer.cs">
+      <DependentUpon>NovoPedidoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormPrincipal.Designer.cs">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormRelatorio.Designer.cs">
+      <DependentUpon>FormRelatorio.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -168,9 +190,32 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\FormAdicionarProduto.resx">
+      <DependentUpon>FormAdicionarProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormGerirPermissoes.resx">
+      <DependentUpon>FormGerirPermissoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormGerirProduto.resx">
+      <DependentUpon>FormGerirProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormNovaConta.resx">
+      <DependentUpon>FormNovaConta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormPrincipal.resx">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormRelatorio.resx">
+      <DependentUpon>FormRelatorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NovoPedidoForm.resx">
+      <DependentUpon>NovoPedidoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Models\Repositorios\pedidos.json" />
+    <None Include="Models\Repositorios\utilizadores.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

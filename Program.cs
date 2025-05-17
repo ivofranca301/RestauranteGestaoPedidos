@@ -2,10 +2,7 @@
 using RestauranteGestaoPedidos.Views;
 using System;
 using System.Windows.Forms;
-using RestauranteGestaoPedidos.Controllers;
-using RestauranteGestaoPedidos.Views;
-using System;
-using System.Windows.Forms;
+using RestauranteGestaoPedidos.Models;
 
 namespace RestauranteGestaoPedidos
 {

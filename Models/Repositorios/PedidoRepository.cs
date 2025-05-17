@@ -3,10 +3,9 @@ using RestauranteGestaoPedidos.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
-namespace RestauranteGestaoPedidos.Data
+namespace RestauranteGestaoPedidos.Models.repositorios
 {
     public class PedidoRepository
     {
@@ -22,7 +21,21 @@ namespace RestauranteGestaoPedidos.Data
             if (!File.Exists(_filePath))
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(_filePath));
-                var pedidosIniciais = new List<Pedido>();
+                var pedidosIniciais = new List<Pedido>
+                {
+                    new Pedido
+                    {
+                        Id = 1,
+                        Cliente = "João Silva",
+                        Itens = new List<ItemPedido>
+                        {
+                            new ItemPedido { ProdutoId = 1, Nome = "Pizza Margherita", Quantidade = 2, Preco = 30.00m },
+                            new ItemPedido { ProdutoId = 2, Nome = "Refrigerante", Quantidade = 1, Preco = 5.00m }
+                        },
+                        Data = DateTime.Now,
+                        Status = StatusPedido.Pendente
+                    }
+                };
                 SavePedidos(pedidosIniciais);
                 return pedidosIniciais;
             }
@@ -50,25 +63,6 @@ namespace RestauranteGestaoPedidos.Data
             catch (Exception ex)
             {
                 MessageBox.Show($"Erro ao salvar pedidos: {ex.Message}", "Erro");
-            }
-        }
-
-        public void AdicionarPedido(Pedido pedido)
-        {
-            var pedidos = GetPedidos();
-            pedido.Id = pedidos.Any() ? pedidos.Max(p => p.Id) + 1 : 1;
-            pedidos.Add(pedido);
-            SavePedidos(pedidos);
-        }
-
-        public void AtualizarStatus(int pedidoId, StatusPedido novoStatus)
-        {
-            var pedidos = GetPedidos();
-            var pedido = pedidos.FirstOrDefault(p => p.Id == pedidoId);
-            if (pedido != null)
-            {
-                pedido.Status = novoStatus; // Aqui deve ser StatusPedido, não string
-                SavePedidos(pedidos);
             }
         }
     }

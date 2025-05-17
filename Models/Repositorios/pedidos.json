@@ -1,0 +1,22 @@
+﻿[
+  {
+    "id": 1,
+    "cliente": "João Silva",
+    "itens": [
+      {
+        "produtoId": 1,
+        "nome": "Pizza Margherita",
+        "quantidade": 2,
+        "preco": 30.00
+      },
+      {
+        "produtoId": 2,
+        "nome": "Refrigerante",
+        "quantidade": 1,
+        "preco": 5.00
+      }
+    ],
+    "data": "2025-04-14T10:00:00",
+    "status": "Pendente"
+  }
+]

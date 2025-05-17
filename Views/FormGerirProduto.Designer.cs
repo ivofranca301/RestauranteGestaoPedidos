@@ -29,11 +29,11 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTitulo.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold);
             this.lblTitulo.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblTitulo.Location = new System.Drawing.Point(10, 10);
+            this.lblTitulo.Location = new System.Drawing.Point(11, 10);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(208, 31);
+            this.lblTitulo.Size = new System.Drawing.Size(316, 37);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Gerenciar Produtos";
             // 
@@ -43,19 +43,19 @@
             this.flowLayoutPanel1.Controls.Add(this.btnEditar);
             this.flowLayoutPanel1.Controls.Add(this.btnRemover);
             this.flowLayoutPanel1.Controls.Add(this.btnFechar);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 50);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(11, 50);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(760, 40);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(846, 50);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // btnAdicionar
             // 
             this.btnAdicionar.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnAdicionar.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdicionar.Font = new System.Drawing.Font("Arial", 10F);
             this.btnAdicionar.ForeColor = System.Drawing.Color.White;
             this.btnAdicionar.Location = new System.Drawing.Point(3, 3);
             this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(120, 30);
+            this.btnAdicionar.Size = new System.Drawing.Size(135, 47);
             this.btnAdicionar.TabIndex = 0;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = false;
@@ -64,11 +64,11 @@
             // btnEditar
             // 
             this.btnEditar.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnEditar.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEditar.Font = new System.Drawing.Font("Arial", 10F);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(129, 3);
+            this.btnEditar.Location = new System.Drawing.Point(144, 3);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(120, 30);
+            this.btnEditar.Size = new System.Drawing.Size(135, 47);
             this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
@@ -77,11 +77,11 @@
             // btnRemover
             // 
             this.btnRemover.BackColor = System.Drawing.Color.IndianRed;
-            this.btnRemover.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRemover.Font = new System.Drawing.Font("Arial", 10F);
             this.btnRemover.ForeColor = System.Drawing.Color.White;
-            this.btnRemover.Location = new System.Drawing.Point(255, 3);
+            this.btnRemover.Location = new System.Drawing.Point(285, 3);
             this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(120, 30);
+            this.btnRemover.Size = new System.Drawing.Size(135, 47);
             this.btnRemover.TabIndex = 2;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = false;
@@ -90,11 +90,11 @@
             // btnFechar
             // 
             this.btnFechar.BackColor = System.Drawing.Color.Gray;
-            this.btnFechar.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnFechar.Font = new System.Drawing.Font("Arial", 10F);
             this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Location = new System.Drawing.Point(381, 3);
+            this.btnFechar.Location = new System.Drawing.Point(426, 3);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(120, 30);
+            this.btnFechar.Size = new System.Drawing.Size(143, 47);
             this.btnFechar.TabIndex = 3;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = false;
@@ -106,24 +106,23 @@
             this.dataGridViewProdutos.AllowUserToDeleteRows = false;
             this.dataGridViewProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewProdutos.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.dataGridViewProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProdutos.GridColor = System.Drawing.Color.Gray;
-            this.dataGridViewProdutos.Location = new System.Drawing.Point(10, 96);
+            this.dataGridViewProdutos.Location = new System.Drawing.Point(2, 115);
             this.dataGridViewProdutos.Name = "dataGridViewProdutos";
             this.dataGridViewProdutos.ReadOnly = true;
             this.dataGridViewProdutos.RowHeadersWidth = 51;
             this.dataGridViewProdutos.RowTemplate.Height = 29;
             this.dataGridViewProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewProdutos.Size = new System.Drawing.Size(760, 350);
+            this.dataGridViewProdutos.Size = new System.Drawing.Size(855, 350);
             this.dataGridViewProdutos.TabIndex = 2;
             // 
             // FormGerenciarProdutos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(780, 450);
+            this.ClientSize = new System.Drawing.Size(869, 477);
             this.Controls.Add(this.dataGridViewProdutos);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.lblTitulo);
@@ -135,6 +134,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.Label lblTitulo;
