@@ -53,7 +53,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnSair);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(11, 50);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1010, 62);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1114, 62);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // btnNovoPedido
@@ -76,7 +76,7 @@
             this.btnEditarPedido.ForeColor = System.Drawing.Color.White;
             this.btnEditarPedido.Location = new System.Drawing.Point(97, 3);
             this.btnEditarPedido.Name = "btnEditarPedido";
-            this.btnEditarPedido.Size = new System.Drawing.Size(93, 43);
+            this.btnEditarPedido.Size = new System.Drawing.Size(109, 43);
             this.btnEditarPedido.TabIndex = 1;
             this.btnEditarPedido.Text = "Editar Pedido";
             this.btnEditarPedido.UseVisualStyleBackColor = false;
@@ -87,9 +87,9 @@
             this.btnRemoverPedido.BackColor = System.Drawing.Color.IndianRed;
             this.btnRemoverPedido.Font = new System.Drawing.Font("Arial", 10F);
             this.btnRemoverPedido.ForeColor = System.Drawing.Color.White;
-            this.btnRemoverPedido.Location = new System.Drawing.Point(196, 3);
+            this.btnRemoverPedido.Location = new System.Drawing.Point(212, 3);
             this.btnRemoverPedido.Name = "btnRemoverPedido";
-            this.btnRemoverPedido.Size = new System.Drawing.Size(105, 43);
+            this.btnRemoverPedido.Size = new System.Drawing.Size(126, 43);
             this.btnRemoverPedido.TabIndex = 2;
             this.btnRemoverPedido.Text = "Remover Pedido";
             this.btnRemoverPedido.UseVisualStyleBackColor = false;
@@ -100,7 +100,7 @@
             this.btnHistorico.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnHistorico.Font = new System.Drawing.Font("Arial", 10F);
             this.btnHistorico.ForeColor = System.Drawing.Color.White;
-            this.btnHistorico.Location = new System.Drawing.Point(307, 3);
+            this.btnHistorico.Location = new System.Drawing.Point(344, 3);
             this.btnHistorico.Name = "btnHistorico";
             this.btnHistorico.Size = new System.Drawing.Size(125, 43);
             this.btnHistorico.TabIndex = 3;
@@ -113,9 +113,9 @@
             this.btnProdutos.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnProdutos.Font = new System.Drawing.Font("Arial", 10F);
             this.btnProdutos.ForeColor = System.Drawing.Color.White;
-            this.btnProdutos.Location = new System.Drawing.Point(438, 3);
+            this.btnProdutos.Location = new System.Drawing.Point(475, 3);
             this.btnProdutos.Name = "btnProdutos";
-            this.btnProdutos.Size = new System.Drawing.Size(127, 43);
+            this.btnProdutos.Size = new System.Drawing.Size(151, 43);
             this.btnProdutos.TabIndex = 4;
             this.btnProdutos.Text = "Produtos";
             this.btnProdutos.UseVisualStyleBackColor = false;
@@ -126,9 +126,9 @@
             this.btnRelatorio.BackColor = System.Drawing.Color.DarkCyan;
             this.btnRelatorio.Font = new System.Drawing.Font("Arial", 10F);
             this.btnRelatorio.ForeColor = System.Drawing.Color.White;
-            this.btnRelatorio.Location = new System.Drawing.Point(571, 3);
+            this.btnRelatorio.Location = new System.Drawing.Point(632, 3);
             this.btnRelatorio.Name = "btnRelatorio";
-            this.btnRelatorio.Size = new System.Drawing.Size(136, 43);
+            this.btnRelatorio.Size = new System.Drawing.Size(168, 43);
             this.btnRelatorio.TabIndex = 5;
             this.btnRelatorio.Text = "Relatório";
             this.btnRelatorio.UseVisualStyleBackColor = false;
@@ -139,9 +139,9 @@
             this.btnPermissoes.BackColor = System.Drawing.Color.DarkMagenta;
             this.btnPermissoes.Font = new System.Drawing.Font("Arial", 10F);
             this.btnPermissoes.ForeColor = System.Drawing.Color.White;
-            this.btnPermissoes.Location = new System.Drawing.Point(713, 3);
+            this.btnPermissoes.Location = new System.Drawing.Point(806, 3);
             this.btnPermissoes.Name = "btnPermissoes";
-            this.btnPermissoes.Size = new System.Drawing.Size(154, 43);
+            this.btnPermissoes.Size = new System.Drawing.Size(155, 43);
             this.btnPermissoes.TabIndex = 6;
             this.btnPermissoes.Text = "Permissões";
             this.btnPermissoes.UseVisualStyleBackColor = false;
@@ -152,7 +152,7 @@
             this.btnSair.BackColor = System.Drawing.Color.Gray;
             this.btnSair.Font = new System.Drawing.Font("Arial", 10F);
             this.btnSair.ForeColor = System.Drawing.Color.White;
-            this.btnSair.Location = new System.Drawing.Point(873, 3);
+            this.btnSair.Location = new System.Drawing.Point(967, 3);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(122, 43);
             this.btnSair.TabIndex = 7;
@@ -174,7 +174,7 @@
             this.dataGridViewPedidos.RowHeadersWidth = 51;
             this.dataGridViewPedidos.RowTemplate.Height = 29;
             this.dataGridViewPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPedidos.Size = new System.Drawing.Size(993, 329);
+            this.dataGridViewPedidos.Size = new System.Drawing.Size(1078, 329);
             this.dataGridViewPedidos.TabIndex = 2;
             // 
             // FormPrincipal
@@ -182,7 +182,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(1019, 497);
+            this.ClientSize = new System.Drawing.Size(1137, 542);
             this.Controls.Add(this.dataGridViewPedidos);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.lblTitulo);
