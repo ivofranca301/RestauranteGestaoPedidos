@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
-namespace RestauranteGestaoPedidos.Data
+namespace RestauranteGestaoPedidos.Models.repositorios
 {
     public class UtilizadorRepository
     {

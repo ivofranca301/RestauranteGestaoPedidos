@@ -1,4 +1,5 @@
 ﻿using RestauranteGestaoPedidos.Controllers;
+using RestauranteGestaoPedidos.Models;
 using System;
 using System.Windows.Forms;
 
@@ -22,13 +23,15 @@ namespace RestauranteGestaoPedidos.Views
                 return;
             }
 
-            string nome = txtNome.Text;
-            string email = txtEmail.Text;
-            string senha = txtSenha.Text;
-            string papel = "Utilizador";
-           
+            var novoUtilizador = new Utilizador
+            {
+                Nome = txtNome.Text,
+                Email = txtEmail.Text,
+                Senha = txtSenha.Text,
+                Papel = "Utilizador"
+            };
 
-            _controller.CriarConta(nome, email, senha, papel);
+            _controller.CriarConta(novoUtilizador);
             MessageBox.Show("Conta criada com sucesso.", "Sucesso");
             DialogResult = DialogResult.OK;
             Close();

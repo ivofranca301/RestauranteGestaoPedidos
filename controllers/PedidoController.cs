@@ -1,9 +1,11 @@
-﻿using RestauranteGestaoPedidos.Data;
+﻿
 using RestauranteGestaoPedidos.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RestauranteGestaoPedidos.Models.repositorios;
 using System.Windows.Forms;
+
 
 namespace RestauranteGestaoPedidos.Controllers
 {

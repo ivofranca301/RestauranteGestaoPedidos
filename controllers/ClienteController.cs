@@ -1,8 +1,9 @@
-﻿using RestauranteGestaoPedidos.Data;
+﻿using RestauranteGestaoPedidos.Models.repositorios;
 using RestauranteGestaoPedidos.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 
 namespace RestauranteGestaoPedidos.Controllers
 {
@@ -63,4 +64,3 @@ namespace RestauranteGestaoPedidos.Controllers
         }
     }
 }
-

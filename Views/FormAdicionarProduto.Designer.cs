@@ -41,72 +41,84 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(400, 200);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(469, 221);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Arial", 10F);
             this.label1.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.label1.Location = new System.Drawing.Point(13, 10);
+            this.label1.Location = new System.Drawing.Point(14, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 19);
+            this.label1.Size = new System.Drawing.Size(67, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome:";
             // 
             // txtNome
             // 
             this.txtNome.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtNome.Location = new System.Drawing.Point(123, 13);
+            this.txtNome.Location = new System.Drawing.Point(148, 13);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(250, 27);
+            this.txtNome.Size = new System.Drawing.Size(281, 26);
             this.txtNome.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Arial", 10F);
             this.label2.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.label2.Location = new System.Drawing.Point(13, 69);
+            this.label2.Location = new System.Drawing.Point(14, 77);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 19);
+            this.label2.Size = new System.Drawing.Size(99, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "Preço (€):";
             // 
             // txtPreco
             // 
             this.txtPreco.DecimalPlaces = 2;
-            this.txtPreco.Location = new System.Drawing.Point(123, 72);
-            this.txtPreco.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-            this.txtPreco.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            this.txtPreco.Location = new System.Drawing.Point(148, 80);
+            this.txtPreco.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtPreco.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(250, 27);
+            this.txtPreco.Size = new System.Drawing.Size(281, 26);
             this.txtPreco.TabIndex = 3;
-            this.txtPreco.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            this.txtPreco.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnSalvar);
             this.flowLayoutPanel1.Controls.Add(this.btnCancelar);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(123, 128);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(148, 147);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(216, 40);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(243, 40);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // btnSalvar
             // 
             this.btnSalvar.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnSalvar.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSalvar.Font = new System.Drawing.Font("Arial", 10F);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
             this.btnSalvar.Location = new System.Drawing.Point(3, 3);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(100, 30);
+            this.btnSalvar.Size = new System.Drawing.Size(112, 30);
             this.btnSalvar.TabIndex = 0;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
@@ -115,11 +127,11 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.Gray;
-            this.btnCancelar.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCancelar.Font = new System.Drawing.Font("Arial", 10F);
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(109, 3);
+            this.btnCancelar.Location = new System.Drawing.Point(121, 3);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(100, 30);
+            this.btnCancelar.Size = new System.Drawing.Size(112, 30);
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -127,10 +139,10 @@
             // 
             // FormAdicionarProduto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(400, 200);
+            this.ClientSize = new System.Drawing.Size(469, 221);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -141,6 +153,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPreco)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

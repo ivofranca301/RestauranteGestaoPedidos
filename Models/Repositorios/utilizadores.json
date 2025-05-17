@@ -1,0 +1,16 @@
+﻿[
+  {
+    "id": 1,
+    "nome": "Admin",
+    "email": "admin@restaurante.com",
+    "papel": "Admin",
+    "senha": "admin123"
+  },
+  {
+    "id": 2,
+    "nome": "Utilizador",
+    "email": "user@restaurante.com",
+    "papel": "Utilizador",
+    "senha": "user123"
+  }
+]
