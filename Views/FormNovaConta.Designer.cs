@@ -50,7 +50,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(450, 200);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(471, 267);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -67,7 +67,7 @@
             // txtNome
             // 
             this.txtNome.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtNome.Location = new System.Drawing.Point(142, 13);
+            this.txtNome.Location = new System.Drawing.Point(148, 13);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(281, 26);
             this.txtNome.TabIndex = 1;
@@ -77,7 +77,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 10F);
             this.label2.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.label2.Location = new System.Drawing.Point(14, 55);
+            this.label2.Location = new System.Drawing.Point(14, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 23);
             this.label2.TabIndex = 2;
@@ -86,7 +86,7 @@
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtEmail.Location = new System.Drawing.Point(142, 58);
+            this.txtEmail.Location = new System.Drawing.Point(148, 74);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(281, 26);
             this.txtEmail.TabIndex = 3;
@@ -96,7 +96,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10F);
             this.label3.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.label3.Location = new System.Drawing.Point(14, 100);
+            this.label3.Location = new System.Drawing.Point(14, 132);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 23);
             this.label3.TabIndex = 4;
@@ -105,7 +105,7 @@
             // txtSenha
             // 
             this.txtSenha.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtSenha.Location = new System.Drawing.Point(142, 103);
+            this.txtSenha.Location = new System.Drawing.Point(148, 135);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(281, 26);
@@ -115,9 +115,9 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnSalvar);
             this.flowLayoutPanel1.Controls.Add(this.btnCancelar);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(142, 148);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(148, 196);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(243, 39);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(309, 58);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // btnSalvar
@@ -127,7 +127,7 @@
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
             this.btnSalvar.Location = new System.Drawing.Point(3, 3);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(112, 30);
+            this.btnSalvar.Size = new System.Drawing.Size(139, 55);
             this.btnSalvar.TabIndex = 0;
             this.btnSalvar.Text = "Guardar";
             this.btnSalvar.UseVisualStyleBackColor = false;
@@ -138,9 +138,9 @@
             this.btnCancelar.BackColor = System.Drawing.Color.Gray;
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 10F);
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(121, 3);
+            this.btnCancelar.Location = new System.Drawing.Point(148, 3);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(112, 30);
+            this.btnCancelar.Size = new System.Drawing.Size(142, 55);
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -151,7 +151,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(450, 200);
+            this.ClientSize = new System.Drawing.Size(471, 267);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;

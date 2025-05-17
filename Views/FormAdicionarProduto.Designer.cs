@@ -108,7 +108,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnCancelar);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(148, 147);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(243, 40);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(258, 61);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // btnSalvar
@@ -118,9 +118,9 @@
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
             this.btnSalvar.Location = new System.Drawing.Point(3, 3);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(112, 30);
+            this.btnSalvar.Size = new System.Drawing.Size(112, 44);
             this.btnSalvar.TabIndex = 0;
-            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.Text = "Guardar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
@@ -131,7 +131,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(121, 3);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(112, 30);
+            this.btnCancelar.Size = new System.Drawing.Size(116, 44);
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
