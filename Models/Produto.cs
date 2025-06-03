@@ -2,7 +2,7 @@
 
 namespace RestauranteGestaoPedidos.Models
 {
-    public class Produto
+    public class Produto : IProduto
     {
         [JsonProperty("id")]
         public int Id { get; set; }
