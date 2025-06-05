@@ -14,6 +14,9 @@ namespace RestauranteGestaoPedidos.Views
         public FormAdicionarProduto(ProdutoController controller, Produto produto = null)
         {
             InitializeComponent();
+            txtPreco.Minimum = 0.01M;           // impede valores a 0
+            txtPreco.DecimalPlaces = 2;        // para permitir casas decimais
+            txtPreco.Increment = 0.10M;        // valor ao clicar nas setas
             _controller = controller;
             _controller.Notificar += Controller_Notificar;
             _produto = produto ?? new Produto();
