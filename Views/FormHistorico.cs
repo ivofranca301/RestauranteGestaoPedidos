@@ -17,7 +17,20 @@ namespace RestauranteGestaoPedidos.Views
 
         private void CarregarHistorico()
         {
-            dataGridViewHistorico.DataSource = _pedidoController.ListarPedidos();
+            try
+            {
+                dataGridViewHistorico.DataSource = null;
+                dataGridViewHistorico.DataSource = _pedidoController.ListarPedidos();
+                if (dataGridViewHistorico.Columns["Preco"] != null)
+                {
+                    dataGridViewHistorico.Columns["Preco"].DefaultCellStyle.Format = "€0.00";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar histórico de pedidos: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dataGridViewHistorico.Enabled = false;
+            }
         }
 
         private void btnFechar_Click(object sender, EventArgs e)

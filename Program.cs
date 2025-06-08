@@ -1,8 +1,8 @@
 ﻿using RestauranteGestaoPedidos.Controllers;
 using RestauranteGestaoPedidos.Views;
+using RestauranteGestaoPedidos.Models.Repositorios;
 using System;
 using System.Windows.Forms;
-using RestauranteGestaoPedidos.Models;
 
 namespace RestauranteGestaoPedidos
 {
@@ -11,15 +11,16 @@ namespace RestauranteGestaoPedidos
         [STAThread]
         static void Main()
         {
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
             var clienteController = new ClienteController();
             var formLogin = new FormLogin(clienteController);
+
             if (formLogin.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new FormPrincipal(formLogin.EmailLogado, formLogin.PapelLogado));
+                IProdutoRepository produtoRepository = new ProdutoRepository();
+                Application.Run(new FormPrincipal(formLogin.EmailLogado, formLogin.PapelLogado, produtoRepository));
             }
         }
     }

@@ -27,8 +27,15 @@ namespace RestauranteGestaoPedidos.Views
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    GerarRelatorioPDF(saveFileDialog.FileName);
-                    MessageBox.Show("Relatório gerado com sucesso!", "Sucesso");
+                    try
+                    {
+                        GerarRelatorioPDF(saveFileDialog.FileName);
+                        MessageBox.Show("Relatório gerado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao gerar relatório: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

@@ -1,59 +1,45 @@
-﻿using RestauranteGestaoPedidos.Models.repositorios;
-using RestauranteGestaoPedidos.Models;
+﻿using RestauranteGestaoPedidos.Models;
+using RestauranteGestaoPedidos.Models.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 
 namespace RestauranteGestaoPedidos.Controllers
 {
     public class ProdutoController
     {
-        private readonly ProdutoRepository _produtoRepository;
+        private readonly IProdutoRepository _produtoRepository;
 
         public event EventHandler<string> Notificar;
 
-        public ProdutoController()
+        // Construtor modificado para injeção da interface
+        public ProdutoController(IProdutoRepository produtoRepository)
         {
-            _produtoRepository = new ProdutoRepository();
+            _produtoRepository = produtoRepository;
         }
 
         public List<Produto> ListarProdutos()
         {
-            return _produtoRepository.GetProdutos();
+            return _produtoRepository.ObterTodos();
         }
 
         public void AdicionarProduto(Produto produto)
         {
-            var produtos = _produtoRepository.GetProdutos();
-            produto.Id = produtos.Any() ? produtos.Max(p => p.Id) + 1 : 1;
-            produtos.Add(produto);
-            _produtoRepository.SaveProdutos(produtos);
+            _produtoRepository.Adicionar(produto);
             Notificar?.Invoke(this, "Produto adicionado");
         }
 
         public void AtualizarProduto(Produto produto)
         {
-            var produtos = _produtoRepository.GetProdutos();
-            var index = produtos.FindIndex(p => p.Id == produto.Id);
-            if (index >= 0)
-            {
-                produtos[index] = produto;
-                _produtoRepository.SaveProdutos(produtos);
-                Notificar?.Invoke(this, "Produto editado");
-            }
+            _produtoRepository.Atualizar(produto);
+            Notificar?.Invoke(this, "Produto editado");
         }
 
         public void RemoverProduto(int id)
         {
-            var produtos = _produtoRepository.GetProdutos();
-            var produto = produtos.FirstOrDefault(p => p.Id == id);
-            if (produto != null)
-            {
-                produtos.Remove(produto);
-                _produtoRepository.SaveProdutos(produtos);
-                Notificar?.Invoke(this, "Produto removido");
-            }
+            _produtoRepository.Remover(id);
+            Notificar?.Invoke(this, "Produto removido");
         }
+        public IProdutoRepository Repositorio => _produtoRepository;
     }
 }

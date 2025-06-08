@@ -1,13 +1,14 @@
 ﻿using Newtonsoft.Json;
 using RestauranteGestaoPedidos.Models;
+using RestauranteGestaoPedidos.Models.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Windows.Forms;
+using System.Linq;
 
-namespace RestauranteGestaoPedidos.Models.repositorios
+namespace RestauranteGestaoPedidos.Models.Repositorios
 {
-    public class ProdutoRepository
+    public class ProdutoRepository : IProdutoRepository
     {
         private readonly string _filePath;
 
@@ -16,7 +17,7 @@ namespace RestauranteGestaoPedidos.Models.repositorios
             _filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "produtos.json");
         }
 
-        public List<Produto> GetProdutos()
+        public List<Produto> ObterTodos()
         {
             if (!File.Exists(_filePath))
             {
@@ -38,12 +39,75 @@ namespace RestauranteGestaoPedidos.Models.repositorios
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao carregar produtos: {ex.Message}", "Erro");
-                return new List<Produto>();
+                throw new IOException($"Erro ao carregar produtos: {ex.Message}", ex);
             }
         }
 
-        public void SaveProdutos(List<Produto> produtos)
+        public Produto ObterPorId(int id)
+        {
+            return ObterTodos().FirstOrDefault(p => p.Id == id);
+        }
+
+        public void Adicionar(Produto produto)
+        {
+            try
+            {
+                var produtos = ObterTodos();
+                produto.Id = produtos.Any() ? produtos.Max(p => p.Id) + 1 : 1;
+                produtos.Add(produto);
+                SaveProdutos(produtos);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Erro ao adicionar o produto.", ex);
+            }
+        }
+
+        public void Atualizar(Produto produto)
+        {
+            try
+            {
+                var produtos = ObterTodos();
+                var index = produtos.FindIndex(p => p.Id == produto.Id);
+                if (index >= 0)
+                {
+                    produtos[index] = produto;
+                    SaveProdutos(produtos);
+                }
+                else
+                {
+                    throw new KeyNotFoundException("Produto não encontrado para atualização.");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Erro ao atualizar o produto.", ex);
+            }
+        }
+
+        public void Remover(int id)
+        {
+            try
+            {
+                var produtos = ObterTodos();
+                var produto = produtos.FirstOrDefault(p => p.Id == id);
+                if (produto != null)
+                {
+                    produtos.Remove(produto);
+                    SaveProdutos(produtos);
+                }
+                else
+                {
+                    throw new KeyNotFoundException("Produto não encontrado para remoção.");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Erro ao remover o produto.", ex);
+            }
+        }
+
+        private void SaveProdutos(List<Produto> produtos)
         {
             try
             {
@@ -52,7 +116,7 @@ namespace RestauranteGestaoPedidos.Models.repositorios
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao salvar produtos: {ex.Message}", "Erro");
+                throw new IOException($"Erro ao guardar os produtos: {ex.Message}", ex);
             }
         }
     }

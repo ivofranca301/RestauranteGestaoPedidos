@@ -3,7 +3,6 @@ using RestauranteGestaoPedidos.Models;
 using System;
 using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace RestauranteGestaoPedidos.Views
 {
@@ -23,6 +22,7 @@ namespace RestauranteGestaoPedidos.Views
             _pedido = pedido ?? new Pedido();
             _isEdicao = pedido != null;
             CarregarProdutos();
+
             if (_isEdicao)
             {
                 PreencherCampos();
@@ -31,17 +31,25 @@ namespace RestauranteGestaoPedidos.Views
 
         private void Controller_Notificar(object sender, string mensagem)
         {
-            MessageBox.Show(mensagem, "Sucesso");
+            MessageBox.Show(mensagem, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void CarregarProdutos()
         {
-            var produtos = _produtoController.ListarProdutos();
-            comboBoxProduto.DataSource = produtos;
-            comboBoxProduto.DisplayMember = "Nome";
-            comboBoxProduto.ValueMember = "Id";
-            comboBoxProduto.SelectedIndexChanged += ComboBoxProduto_SelectedIndexChanged;
-            AtualizarPrecoProduto();
+            try
+            {
+                var produtos = _produtoController.ListarProdutos();
+                comboBoxProduto.DataSource = produtos;
+                comboBoxProduto.DisplayMember = "Nome";
+                comboBoxProduto.ValueMember = "Id";
+                comboBoxProduto.SelectedIndexChanged += ComboBoxProduto_SelectedIndexChanged;
+                AtualizarPrecoProduto();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar produtos: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                comboBoxProduto.Enabled = false;
+            }
         }
 
         private void ComboBoxProduto_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,9 +59,8 @@ namespace RestauranteGestaoPedidos.Views
 
         private void AtualizarPrecoProduto()
         {
-            if (comboBoxProduto.SelectedItem != null)
+            if (comboBoxProduto.SelectedItem is Produto produtoSelecionado)
             {
-                var produtoSelecionado = (Produto)comboBoxProduto.SelectedItem;
                 lblPrecoProduto.Text = $"Preço: €{produtoSelecionado.Preco:F2}";
             }
             else
@@ -79,45 +86,52 @@ namespace RestauranteGestaoPedidos.Views
         {
             if (string.IsNullOrWhiteSpace(txtCliente.Text) || comboBoxProduto.SelectedItem == null)
             {
-                MessageBox.Show("Preencha todos os campos obrigatórios.", "Erro");
+                MessageBox.Show("Preencha todos os campos obrigatórios.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            _pedido.Cliente = txtCliente.Text;
-            _pedido.Data = dtpData.Value;
-            _pedido.Status = (StatusPedido)Enum.Parse(typeof(StatusPedido), comboBoxStatus.SelectedItem.ToString());
-
-            if (!_isEdicao)
+            try
             {
-                _pedido.Id = _controller.ListarPedidos().Any() ? _controller.ListarPedidos().Max(p => p.Id) + 1 : 1;
+                _pedido.Cliente = txtCliente.Text;
+                _pedido.Data = dtpData.Value;
+                _pedido.Status = (StatusPedido)Enum.Parse(typeof(StatusPedido), comboBoxStatus.SelectedItem.ToString());
+
+                if (!_isEdicao)
+                {
+                    _pedido.Id = _controller.ListarPedidos().Any() ? _controller.ListarPedidos().Max(p => p.Id) + 1 : 1;
+                }
+
+                var produtoSelecionado = (Produto)comboBoxProduto.SelectedItem;
+                var item = new ItemPedido
+                {
+                    ProdutoId = produtoSelecionado.Id,
+                    Nome = produtoSelecionado.Nome,
+                    Quantidade = (int)numQuantidade.Value,
+                    Preco = produtoSelecionado.Preco
+                };
+
+                if (_isEdicao)
+                {
+                    _pedido.Itens.Clear();
+                }
+                _pedido.Itens.Add(item);
+
+                if (_isEdicao)
+                {
+                    _controller.AtualizarPedido(_pedido);
+                }
+                else
+                {
+                    _controller.CriarPedido(_pedido);
+                }
+
+                DialogResult = DialogResult.OK;
+                Close();
             }
-
-            var produtoSelecionado = (Produto)comboBoxProduto.SelectedItem;
-            var item = new ItemPedido
+            catch (Exception ex)
             {
-                ProdutoId = produtoSelecionado.Id,
-                Nome = produtoSelecionado.Nome,
-                Quantidade = (int)numQuantidade.Value,
-                Preco = produtoSelecionado.Preco
-            };
-
-            if (_isEdicao)
-            {
-                _pedido.Itens.Clear();
+                MessageBox.Show($"Erro ao salvar pedido: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            _pedido.Itens.Add(item);
-
-            if (_isEdicao)
-            {
-                _controller.AtualizarPedido(_pedido);
-            }
-            else
-            {
-                _controller.CriarPedido(_pedido);
-            }
-
-            DialogResult = DialogResult.OK;
-            Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
