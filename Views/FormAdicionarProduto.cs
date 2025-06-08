@@ -14,13 +14,16 @@ namespace RestauranteGestaoPedidos.Views
         public FormAdicionarProduto(ProdutoController controller, Produto produto = null)
         {
             InitializeComponent();
+
             txtPreco.Minimum = 0.01M;           // impede valores a 0
             txtPreco.DecimalPlaces = 2;        // para permitir casas decimais
             txtPreco.Increment = 0.10M;        // valor ao clicar nas setas
+
             _controller = controller;
             _controller.Notificar += Controller_Notificar;
             _produto = produto ?? new Produto();
             _isEdicao = produto != null;
+
             if (_isEdicao)
             {
                 PreencherCampos();
@@ -30,7 +33,7 @@ namespace RestauranteGestaoPedidos.Views
 
         private void Controller_Notificar(object sender, string mensagem)
         {
-            MessageBox.Show(mensagem, "Sucesso");
+            MessageBox.Show(mensagem, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void PreencherCampos()
@@ -43,24 +46,31 @@ namespace RestauranteGestaoPedidos.Views
         {
             if (string.IsNullOrWhiteSpace(txtNome.Text) || txtPreco.Value <= 0)
             {
-                MessageBox.Show("Preencha todos os campos obrigatórios.", "Erro");
+                MessageBox.Show("Preencha todos os campos obrigatórios.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             _produto.Nome = txtNome.Text;
             _produto.Preco = txtPreco.Value;
 
-            if (_isEdicao)
+            try
             {
-                _controller.AtualizarProduto(_produto);
-            }
-            else
-            {
-                _controller.AdicionarProduto(_produto);
-            }
+                if (_isEdicao)
+                {
+                    _controller.AtualizarProduto(_produto);
+                }
+                else
+                {
+                    _controller.AdicionarProduto(_produto);
+                }
 
-            DialogResult = DialogResult.OK;
-            Close();
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao salvar o produto: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -121,6 +121,7 @@
     <Compile Include="Models\ItemPedido.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\Repositorios\IProdutoRepository.cs" />
     <Compile Include="Models\Repositorios\PedidoRepository.cs" />
     <Compile Include="Models\Repositorios\ProdutoRepository.cs" />
     <Compile Include="Models\Repositorios\UtilizadorRepository.cs" />

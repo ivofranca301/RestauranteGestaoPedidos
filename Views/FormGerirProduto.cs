@@ -1,5 +1,6 @@
 ﻿using RestauranteGestaoPedidos.Controllers;
 using RestauranteGestaoPedidos.Models;
+using RestauranteGestaoPedidos.Models.Repositorios;
 using System;
 using System.Windows.Forms;
 
@@ -9,23 +10,39 @@ namespace RestauranteGestaoPedidos.Views
     {
         private readonly ProdutoController _produtoController;
 
-        public FormGerenciarProdutos(ProdutoController produtoController)
+        public FormGerenciarProdutos(IProdutoRepository produtoRepository)
         {
             InitializeComponent();
-            _produtoController = produtoController;
+            _produtoController = new ProdutoController(produtoRepository);
             _produtoController.Notificar += ProdutoController_Notificar;
-            CarregarProdutos();
+
+            try
+            {
+                CarregarProdutos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar produtos: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ProdutoController_Notificar(object sender, string mensagem)
         {
-            MessageBox.Show(mensagem, "Sucesso");
-            CarregarProdutos();
+            MessageBox.Show(mensagem, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            try
+            {
+                CarregarProdutos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao atualizar lista de produtos: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void CarregarProdutos()
         {
-            dataGridViewProdutos.DataSource = null; // Limpar o DataSource para evitar duplicatas
+            dataGridViewProdutos.DataSource = null;
             dataGridViewProdutos.DataSource = _produtoController.ListarProdutos();
             if (dataGridViewProdutos.Columns["Preco"] != null)
             {
@@ -35,9 +52,16 @@ namespace RestauranteGestaoPedidos.Views
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            using (var formAdicionarProduto = new FormAdicionarProduto(_produtoController))
+            try
             {
-                formAdicionarProduto.ShowDialog();
+                using (var formAdicionarProduto = new FormAdicionarProduto(_produtoController))
+                {
+                    formAdicionarProduto.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao adicionar produto: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -45,14 +69,21 @@ namespace RestauranteGestaoPedidos.Views
         {
             if (dataGridViewProdutos.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione um produto para editar.", "Aviso");
+                MessageBox.Show("Selecione um produto para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var produtoSelecionado = (Produto)dataGridViewProdutos.SelectedRows[0].DataBoundItem;
-            using (var formAdicionarProduto = new FormAdicionarProduto(_produtoController, produtoSelecionado))
+            try
             {
-                formAdicionarProduto.ShowDialog();
+                var produtoSelecionado = (Produto)dataGridViewProdutos.SelectedRows[0].DataBoundItem;
+                using (var formAdicionarProduto = new FormAdicionarProduto(_produtoController, produtoSelecionado))
+                {
+                    formAdicionarProduto.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao editar produto: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -60,14 +91,21 @@ namespace RestauranteGestaoPedidos.Views
         {
             if (dataGridViewProdutos.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione um produto para remover.", "Aviso");
+                MessageBox.Show("Selecione um produto para remover.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var produtoSelecionado = (Produto)dataGridViewProdutos.SelectedRows[0].DataBoundItem;
-            if (MessageBox.Show($"Deseja remover o produto {produtoSelecionado.Nome}?", "Confirmação", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            try
             {
-                _produtoController.RemoverProduto(produtoSelecionado.Id);
+                var produtoSelecionado = (Produto)dataGridViewProdutos.SelectedRows[0].DataBoundItem;
+                if (MessageBox.Show($"Deseja remover o produto {produtoSelecionado.Nome}?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    _produtoController.RemoverProduto(produtoSelecionado.Id);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao remover produto: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
